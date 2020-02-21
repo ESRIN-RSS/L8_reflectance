@@ -54,7 +54,7 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USER }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASS }}
-        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD hub.docker.com
+        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD docker.com
 
       - name: Push image
         run: |
