@@ -15,7 +15,7 @@ on:
 
 env:
   # TODO: Change variable to your image's name.
-  IMAGE_NAME: image
+  IMAGE_NAME: l8_reflectance
 
 jobs:
   # Run tests.
@@ -54,11 +54,11 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USER }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASS }}
-        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD docker.com
+        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
       - name: Push image
         run: |
-          IMAGE_ID=l8_reflectance/$IMAGE_NAME
+          IMAGE_ID=$DOCKER_USERNAME/$IMAGE_NAME
 
           # Strip git ref prefix from version
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
