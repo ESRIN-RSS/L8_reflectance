@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # define the exit codes
 SUCCESS=0
 ERR=1
