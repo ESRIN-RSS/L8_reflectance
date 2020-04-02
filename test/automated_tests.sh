@@ -21,7 +21,7 @@ trap cleanExit EXIT
 function run_l8_reflectance() {
 
   local img=$1
-  #L8_reflectance ${img} $( dirname ${img})
+  L8_reflectance ${img} $( dirname ${img})
 
   [ ! -d "${img}_TOA" ] && exit 1
 
@@ -36,7 +36,7 @@ function run_l8_reflectance() {
 }
 
 function main() {
-  #fels 203031 OLI_TIRS 2015-01-01 2015-06-30 -c 30 -o LANDSAT --latest --outputcatalogs /tmp --overwrite
+  fels 203031 OLI_TIRS 2015-01-01 2015-06-30 -c 30 -o LANDSAT --latest --outputcatalogs /tmp --overwrite
   img='LANDSAT/LC08_L1TP_203031_20150518_20170409_01_T1'
   run_l8_reflectance $img
   [ $? -eq 0 ] || return ${ERR}
