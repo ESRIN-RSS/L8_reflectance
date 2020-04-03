@@ -49,7 +49,7 @@ function main() {
 
   # Iterate the string array using for loop
   for val in ${StringArray[@]}; do
-     wget "${sample_img_url}/${sample_img}_$val" -P ${sample_img}
+     wget "${sample_img_url}/${sample_img}_${val//,/}" -P ${sample_img}
   done
   run_l8_reflectance $sample_img
   [ $? -eq 0 ] || return ${ERR}
