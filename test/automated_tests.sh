@@ -23,7 +23,7 @@ trap cleanExit EXIT
 function run_l8_reflectance() {
 
   local img=$1
-  python L8_reflectance/L8_reflectance.py ${img} $( dirname ${img})
+  L8_reflectance ${img} $( dirname ${img})
 
   [ ! -d "${img}_TOA" ] && exit 1
 
